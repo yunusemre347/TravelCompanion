@@ -20,9 +20,11 @@ const PlaceDetails = ({ place, selected, refProp }) => {
   }
 
   return (
-    <Card elevation={6}>
+    <Card elevation={6} id="card">
+           <div className="card-content">
+      <div className="image-wrapper"> 
       <CardMedia
-        style={{ height: 350 }}
+       className="place-list-image" 
         image={
           place.photo
             ? place.photo.images.large.url
@@ -30,21 +32,23 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         }
         title={place.name}
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5">
+      </div>
+ 
+      <CardContent className={classes.cardcontent}>
+        <Typography  className={classes.placeTitle} variant="h5">
           {place.name}
         </Typography>
 
-        <Box display="flex" justifyContent="space-between">
+        <Box className={classes.rating} display="flex" justifyContent="space-between">
           <Rating value={Number(place.rating)} readOnly />
-          <Typography gutterBottom variant="subtitle1">
+          <Typography   variant="subtitle1">
             out of {place.num_reviews ? place.num_reviews : "0"} reviews{" "}
           </Typography>
         </Box>
 
         <Box display="flex" justifyContent="space-between">
-          <Typography variant="subtitle1">Ranking</Typography>
-          <Typography gutterBottom variant="subtitle1">
+          <Typography  className={classes.description} variant="subtitle1">Ranking</Typography>
+          <Typography  className={classes.description}  variant="subtitle1">
             {place.ranking ? place.ranking : "No ranking"}{" "}
           </Typography>
         </Box>
@@ -54,6 +58,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             <img src={award.images.small} alt={award.display_name} />
             <Typography variant="subtitle2" color="textSecondary">
               {award.diplay_name}
+              className={classes.description}
             </Typography>
           </Box>
         ))}
@@ -62,20 +67,22 @@ const PlaceDetails = ({ place, selected, refProp }) => {
         ))}
         {place?.address && (
           <Typography
-            gutterBottom
+            
             variant="subtitle2"
             color="textSecondary"
-            className={classes.subtitle}
+           // className={classes.subtitle}
+            className={classes.description}
           >
             <LocationOnIcon /> {place.address}
           </Typography>
         )}
         {place?.phone && (
           <Typography
-            gutterBottom
+            
+            className={classes.description}
             variant="subtitle2"
             color="textSecondary"
-            className={classes.spacing}
+           // className={classes.spacing}
           >
             <PhoneIcon /> {place.phone}
           </Typography>
@@ -90,6 +97,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
           </Button>
         </CardActions>
       </CardContent>
+      </div>
     </Card>
   );
 };

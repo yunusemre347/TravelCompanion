@@ -49,7 +49,7 @@ function App() {
     <>
       <CssBaseline />
       <Header setCoordinates={setCoordinates} />
-      <Grid container spacing={3} style={{ width: "100%" }}>
+      <Grid container spacing={1} style={{ width: "100%" }}>
         <Grid item xs={12} md={4}>
           <List
             places={filteredPlaces.length ? filteredPlaces : places}
@@ -67,7 +67,6 @@ function App() {
             setCoordinates={setCoordinates}
             places={filteredPlaces.length ? filteredPlaces : places}
             setBounds={setBounds}
-            bounds={bounds}
             setChildClicked={setChildClicked}
           />
         </Grid>

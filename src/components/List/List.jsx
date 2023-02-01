@@ -6,6 +6,7 @@ import {
   MenuItem,
   FormControl,
   Select,
+  useMediaQuery
 } from "@material-ui/core";
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
@@ -24,6 +25,8 @@ const List = ({
   const classes = useStyles();
   const [elementRefs, setElementRefs] = useState([]);
 
+  const isDesktop = useMediaQuery("(min-width:950px)")
+
   //map through the response to create a grid for left side.
   useEffect(() => {
     const refs = Array(places?.length)
@@ -33,10 +36,12 @@ const List = ({
   }, [places]);
 
   return (
-    <div className={classes.conteiner}>
-      <Typography variant="h4">
+    <div className={classes.container} id="list-container">
+
+      <Typography className={classes.title} variant="h4">
         Restaurants, Hotels & Attractions around you
       </Typography>
+ 
       {isLoading ? (
         <div className={classes.loading}>
           {" "}
@@ -61,9 +66,9 @@ const List = ({
               <MenuItem value={4.5}>Above 4.5</MenuItem>
             </Select>
           </FormControl>
-          <Grid container spacing={3} className={classes.list}>
+          <Grid container spacing={3} className={classes.list} id="list-element">
             {places?.map((place, i) => (
-              <Grid ref={elementRefs[i]} item key={i} xs={12}>
+              <Grid ref={elementRefs[i]} className={classes.grid} item key={i}  xs={12}>
                 <PlaceDetails
                   place={place}
                   selected={Number(childClicked) == i}

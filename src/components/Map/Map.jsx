@@ -15,7 +15,6 @@ import useStyles from "./styles";
 const Map = ({
   setChildClicked,
   setBounds,
-  bounds,
   places,
   coordinates,
   setCoordinates,
@@ -95,7 +94,9 @@ const Map = ({
           >
             <div className={classes.markerContainer}>
               {!isDesktop ? (
-                <LocationOnOutlinedIcon color="primary" fontSize="large" />
+                <LocationOnOutlinedIcon color="primary" fontSize="large" onClick={(e) => {
+                  setChildClicked(i);
+                }} />
               ) : (
                 <Paper
                   elevation={3}

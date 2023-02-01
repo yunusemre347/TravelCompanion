@@ -38,8 +38,57 @@
 }
 .map-container{
   width: 100%;
-  height: 100vh;
+  height: 85vh;
+  margin-top: 10px;
 }
 .search-wrapper{
   display: flex;
+}
+.place-list-image{
+   height: 350px 
+}
+
+
+@media only screen and (max-width :950px) {
+
+  #list-container{
+     height: 45vh; 
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+  }
+  #list-element{
+    height: 45vh; 
+ }
+ #card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+ .map-container{
+  height: 40vh;
+  margin-left: 8px;
+ }
+ .place-list-image{
+  width: 100%;
+  height: 30vw;
+  align-self: center;
+  margin: auto;
+ }
+ .image-wrapper{
+  
+  width:30vw;
+  height: 30vw;
+  float: left;
+ }
+ .card-content{
+  width: 100%;
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+#form{
+  height: 5%;
+
+}
 }
